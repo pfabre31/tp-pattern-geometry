@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 public class LineString implements Geometry {
 	
-	public List<Point> points;
+	private List<Point> points;
 	
 	//Constructors
 	public LineString() {
 		List<Point> points = new ArrayList<Point>();
+		
 		this.points = points;
 	};
 	

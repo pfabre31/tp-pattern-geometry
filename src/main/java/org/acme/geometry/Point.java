@@ -2,7 +2,11 @@ package org.acme.geometry;
 
 public class Point implements Geometry {
 	
-	public Coordinate coordinate;
+	private Coordinate coordinate;
+	
+	public Coordinate getCoordinate() {
+		return coordinate;
+	}
 	
 	//Constructors
 	public Point() {

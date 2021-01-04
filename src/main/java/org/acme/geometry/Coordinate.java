@@ -8,8 +8,8 @@ public class Coordinate {
 	
 	//Constructors
 	public Coordinate() {
-		x = 0.0;
-		y = 0.0;
+		x = Double.NaN;
+		y = Double.NaN;
 	};
 	public Coordinate(double x, double y) {
 		this.x= x;
@@ -26,6 +26,6 @@ public class Coordinate {
 	};
 	
 	public boolean isEmpty() {
-		return Double.isNaN(x) || Double.isNaN(y);
+		return Double.isNaN(x);
 	};
 }

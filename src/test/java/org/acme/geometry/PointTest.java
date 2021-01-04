@@ -6,10 +6,10 @@ import org.junit.Test;
 public class PointTest {
 	
 	@Test
-	public void isEmpty(){
+	public void testIfNull(){
 		//TODO
 		Point p = new Point();
-		Assert.assertFalse( p.coordinate.isEmpty() );
+		Assert.assertFalse( p.getCoordinate() == null );
 		
 	}
 
