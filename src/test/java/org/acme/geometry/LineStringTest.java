@@ -30,6 +30,7 @@ public class LineStringTest {
 		points.add(p);
 		points.add(p1);
 		LineString l = new LineString(points);
+
 	
 		l.translate(0.5, 0.5);
 		
@@ -40,6 +41,32 @@ public class LineStringTest {
 		//Checking second point
 		Assert.assertEquals( l.getPointN(1).getCoordinate().getX(),1.5, EPSILON );
 		Assert.assertEquals( l.getPointN(1).getCoordinate().getY(),1.5, EPSILON );
+	}
+	
+	
+	@Test
+	public void testClone(){
+		//TODO
+		
+		//Creating linestring
+		
+		Point p = new Point(new Coordinate(0.0,0.0));
+		Point p1 = new Point(new Coordinate(1.0,1.0));
+		List<Point> points = new ArrayList<Point>();
+		points.add(p);
+		points.add(p1);
+		LineString l1 = new LineString(points);
+		LineString l = l1.clone();
+		
+		l.translate(0.5, 0.5);
+		
+		//Checking that l moved
+		Assert.assertEquals( l.getPointN(0).getCoordinate().getX(),0.5, EPSILON );
+		Assert.assertEquals( l.getPointN(0).getCoordinate().getY(),0.5, EPSILON );
+		
+		//Checking that l1 didn't move
+		Assert.assertEquals( l1.getPointN(0).getCoordinate().getX(),0.0, EPSILON );
+		Assert.assertEquals( l1.getPointN(0).getCoordinate().getY(),0.0, EPSILON );
 	}
 
 

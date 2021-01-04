@@ -23,5 +23,18 @@ public class PointTest {
 		Assert.assertEquals( p.getCoordinate().getX(),0.5, EPSILON );
 		Assert.assertEquals( p.getCoordinate().getY(),0.5, EPSILON );
 	}
+	
+	@Test
+	public void testClone(){
+		//TODO
+		Point p1 = new Point(new Coordinate(0.0,0.0));
+		Point p = p1.clone();
+		
+		p.translate(0.5, 0.5);
+		
+		//Checking that p1 didn't translate
+		Assert.assertEquals( p1.getCoordinate().getX(),0.0, EPSILON );
+		Assert.assertEquals( p1.getCoordinate().getY(),0.0, EPSILON );
+	}
 
 }

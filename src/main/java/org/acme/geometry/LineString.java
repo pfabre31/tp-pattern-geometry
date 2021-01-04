@@ -40,6 +40,11 @@ public class LineString implements Geometry {
 		};
 	};
 	
+	@Override
+	public LineString clone() {
+		return new LineString(this.points);
+	};
+	
 
 	public int getNumPoints() {
 		return points.size();

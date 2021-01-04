@@ -33,18 +33,17 @@ public class Point implements Geometry {
 	
 	@Override
 	public void translate(double dx, double dy) {
+			
+		double newX = this.getCoordinate().getX() + dx;
+		double newY = this.getCoordinate().getY() + dy;
 		
-		//Check if coordinate is not empty
-		if (this.getCoordinate().isEmpty() == false) {
+		this.coordinate = new Coordinate(newX, newY);
 			
-			double newX = this.getCoordinate().getX() + dx;
-			double newY = this.getCoordinate().getY() + dy;
-			
-			this.coordinate = new Coordinate(newX, newY);
-			
-		}
-
-		
+	};
+	
+	@Override
+	public Point clone() {
+		return new Point(this.coordinate);
 	};
 	
 	
