@@ -15,8 +15,12 @@ public class LineString implements Geometry {
 	};
 	
 	public LineString(List<Point> points) {
+		assert(points != null );
 		this.points = points;
 	};
+	
+	//Methods
+
 
 	@Override
 	public String getType() {
@@ -24,6 +28,19 @@ public class LineString implements Geometry {
 		return null;
 	}
 	
+	@Override
+	public boolean isEmpty() {
+		return this.getNumPoints() == 0;
+	};
+	
+	@Override
+	public void translate(double dx, double dy) {
+		for (Point point : this.points) {
+			point.translate(dx, dy);
+		};
+	};
+	
+
 	public int getNumPoints() {
 		return points.size();
 	};
