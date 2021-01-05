@@ -12,23 +12,24 @@ public class EnvelopeBuilder {
 	private double maxX = 0;
 	private double maxY = 0;
 	
-	public void insert(Coordinate coordinate) {
-		coordinates.add(coordinate);
+	public void insert(Coordinate c) {
+				
+		if (c.getX() > maxX)
+			maxX = c.getX();
+		if (c.getX() < minX)
+			minX = c.getX();
+		if (c.getY() > maxY)
+			maxY = c.getY();
+		if (c.getY() < minY)
+			minY = c.getY();
+		
+		coordinates.add(c);
 	};
 	public Envelope build() {
-
-		for (Coordinate c : coordinates) {
-			if (c.getX() > maxX)
-				maxX = c.getX();
-			if (c.getX() < minX)
-				minX = c.getX();
-			if (c.getY() > maxY)
-				maxY = c.getY();
-			if (c.getY() < minY)
-				minY = c.getY();
-			
-		};
 		
+		if (coordinates.size() == 0)
+			return null;
+
 		Coordinate bottomLeft = new Coordinate(minX,minY);
 		Coordinate topRight = new Coordinate(maxX,maxY);
 		
