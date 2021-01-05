@@ -23,7 +23,7 @@ public class Point implements Geometry {
 	@Override
 	public String getType() {
 		// TODO Auto-generated method stub
-		return "Point";
+		return "POINT";
 	}
 	
 	@Override
