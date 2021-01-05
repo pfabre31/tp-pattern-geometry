@@ -12,6 +12,8 @@ public class EnvelopeBuilder {
 	private double maxX = 0;
 	private double maxY = 0;
 	
+	public EnvelopeBuilder() {};
+	
 	public void insert(Coordinate c) {
 				
 		if (c.getX() > maxX)

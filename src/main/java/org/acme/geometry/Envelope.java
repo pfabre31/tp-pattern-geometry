@@ -17,7 +17,8 @@ public class Envelope {
 	};
 	
 	public boolean isEmpty() {
-		return this.bottomLeft.isEmpty();
+		return this.bottomLeft.isEmpty() || this.topRight.isEmpty();
+		
 	};
 	
 	
