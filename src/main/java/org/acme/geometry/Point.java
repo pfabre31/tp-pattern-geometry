@@ -56,9 +56,14 @@ public class Point implements Geometry {
 	
 	public void accept(GeometryVisitor visitor) {
 		
-		System.out.print("Je suis un point avec x = " +
-		this.getCoordinate().getX()  + " et y = " + this.getCoordinate().getY());
+		if (visitor instanceof LogGeometryVisitor) {
+			System.out.print("Je suis un point avec x = " +
+			this.getCoordinate().getX()  + " et y = " + this.getCoordinate().getY());
+		} else if (visitor instanceof WktVisitor)
+			visitor.visit(this);
+		
 	};
+
 	
 	
 	
