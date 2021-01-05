@@ -58,18 +58,11 @@ public class LineString extends AbstractGeometry {
 		return points.get(n);
 	};
 	
-	@Override
-	public Envelope getEnvelope(){
-		EnvelopeBuilder builder = new EnvelopeBuilder();
-		for (Point point : this.points)
-			builder.insert(point.getCoordinate());
-		return builder.build();
-		
-	};
+
 	
 	public void accept(GeometryVisitor visitor) {
 		
-		System.out.print("Je suis une polyligne avec " + this.getNumPoints() + " points(s)");
+		visitor.visit(this);
 	};
 
 }

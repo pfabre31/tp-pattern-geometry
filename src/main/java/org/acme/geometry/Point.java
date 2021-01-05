@@ -46,21 +46,19 @@ public class Point extends AbstractGeometry {
 		return new Point(this.coordinate);
 	};
 	
-	@Override
-	public Envelope getEnvelope(){
-		EnvelopeBuilder builder = new EnvelopeBuilder();
-		builder.insert(coordinate);
-		return builder.build();
-		
-	};
+
 	
 	public void accept(GeometryVisitor visitor) {
 		
 		if (visitor instanceof LogGeometryVisitor) {
-			System.out.print("Je suis un point avec x = " +
-			this.getCoordinate().getX()  + " et y = " + this.getCoordinate().getY());
+			
 		} else if (visitor instanceof WktVisitor)
 			visitor.visit(this);
+		else if (visitor instanceof EnvelopeBuilder) {
+			
+			((EnvelopeBuilder) visitor).insert(this.getCoordinate());
+			
+		};
 		
 	};
 
