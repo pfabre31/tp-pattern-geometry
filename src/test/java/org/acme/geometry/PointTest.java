@@ -2,16 +2,19 @@ package org.acme.geometry;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 public class PointTest {
 	
 	public static final double EPSILON = 1.0e-15;
 	
 	@Test
-	public void testIfNull(){
+	public void testIsEmpty(){
 		//TODO
+		Coordinate c = Mockito.mock(Coordinate class);
+		Mockito.when(c.isEmpty()).thenReturn(true);
 		Point p = new Point();
-		Assert.assertFalse( p.getCoordinate() == null );
+		Assert.assertTrue( p.isEmpty() );
 		
 	}
 	
@@ -30,11 +33,9 @@ public class PointTest {
 		Point p1 = new Point(new Coordinate(0.0,0.0));
 		Point p = p1.clone();
 		
-		p.translate(0.5, 0.5);
+		Assert.assertNotSame(p1, p);
+		Assert.assertSame(p1.getCoordinate(), p.getCoordinate());
 		
-		//Checking that p1 didn't translate
-		Assert.assertEquals( p1.getCoordinate().getX(),0.0, EPSILON );
-		Assert.assertEquals( p1.getCoordinate().getY(),0.0, EPSILON );
 	}
 
 }

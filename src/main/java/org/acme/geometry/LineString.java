@@ -25,7 +25,7 @@ public class LineString implements Geometry {
 	@Override
 	public String getType() {
 		// TODO Auto-generated method stub
-		return null;
+		return "LineString";
 	}
 	
 	@Override
@@ -42,7 +42,11 @@ public class LineString implements Geometry {
 	
 	@Override
 	public LineString clone() {
-		return new LineString(this.points);
+		List<Point> newPoints = new ArrayList<Point>();
+		for (Point point : this.points) {
+			newPoints.add(point.clone());
+		};
+		return new LineString(newPoints);
 	};
 	
 
